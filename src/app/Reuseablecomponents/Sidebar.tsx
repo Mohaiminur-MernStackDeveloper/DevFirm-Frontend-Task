@@ -9,7 +9,7 @@ import Link from "next/link";
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(true);
   return (
-    <div className="w-fit min-h-screen p-5 flex flex-col justify-start bg-primary rounded-md text-gray-500 items-center">
+    <div className={`w-fit min-h-screen font-thin py-5 flex flex-col justify-start bg-primary rounded-md text-blue-200 items-center ${expanded ? "px-16": "px-5"}`}>
       <div className="w-full flex justify-between mb-5 items-center">
         <div>
           {expanded ? (
