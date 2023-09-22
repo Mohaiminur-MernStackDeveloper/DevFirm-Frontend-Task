@@ -4,6 +4,7 @@ import { useDropzone } from "react-dropzone";
 import { BsDownload } from "react-icons/bs";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { AiFillDelete } from "react-icons/ai";
 
 const AddInvoice = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -74,7 +75,9 @@ const AddInvoice = () => {
           </div>
         </div>
         <div className="space-y-3">
-          <label className="font-bold" htmlFor="">plane image</label>
+          <label className="font-bold" htmlFor="">
+            plane image
+          </label>
           <div
             className="w-fit border border-dashed border-blue-500 p-5 rounded-md"
             {...getRootProps()}
@@ -93,6 +96,114 @@ const AddInvoice = () => {
               </div>
             )}
           </div>
+        </div>
+      </div>
+      {/* seceound section from here */}
+      <div className="bg-white p-5 rounded-md">
+        <div>
+          <div>
+            <table className="table-fixed w-full">
+              <thead className="font-bold text-start">
+                <tr>
+                  <th className="text-start">Product Ttype:</th>
+                  <th className="text-start">Product</th>
+                  <th className="text-start">Description</th>
+                  <th className="text-start">Total</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div className="py-5 my-5 border-y">
+            <table className="table-fixed w-full">
+              <tbody>
+                <tr>
+                  <td>
+                    <div className="w-full flex flex-col gap-2">
+                      <select
+                        className="w-full border rounded-md px-5 outline-none text-sm py-3"
+                        name="Client"
+                        id="client"
+                      >
+                        <option value="">Plan</option>
+                        <option value="">Plan two</option>
+                        <option value="">Plan three</option>
+                        <option value="">Plan four</option>
+                        <option value="">Plan five</option>
+                        <option value="">Plan six</option>
+                        <option value="">Plan Seven</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="w-full flex flex-col gap-2">
+                      <select
+                        className="w-full border rounded-md px-5 outline-none text-sm py-3"
+                        name="Client"
+                        id="clients"
+                      >
+                        <option value="">Falcon8X TBA/LTI</option>
+                        <option value="">Falcon8X TBA/LTI</option>
+                        <option value="">Falcon8X TBA/LTI</option>
+                        <option value="">Falcon8X TBA/LTI</option>
+                        <option value="">Falcon8X TBA/LTI</option>
+                        <option value="">Falcon8X TBA/LTI</option>
+                        <option value="">Falcon8X TBA/LTI</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td>
+                    <input
+                      className="w-full border rounded-md px-5 outline-none text-sm py-3"
+                      type="text"
+                      placeholder="Product for Trip t85256"
+                    />
+                  </td>
+                  <td className="text-right flex justify-end items-center gap-2">
+                    <input
+                      className="w-3/5 border rounded-md px-5 outline-none text-sm py-3"
+                      type="text"
+                      placeholder="11.50.000"
+                    />
+                    <button className="bg-red-200 p-2 rounded-md">
+                      <AiFillDelete className="text-2xl text-red-500" />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button className="mt-3 text-blue-500 font-bold">
+              + Add Product
+            </button>
+          </div>
+        </div>
+        <div>
+          <table className="table-auto w-2/5 ms-auto text-end">
+            <tbody>
+              <tr>
+                <td className="font-bold">Subtotal:</td>
+                <td className="text-gray-400">16.550.000</td>
+              </tr>
+              <tr>
+                <td className="font-bold">TVA:</td>
+                <td className="text-gray-400">2.800.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="border-t mt-5 flex justify-between items-center py-5">
+          <div>
+            <button className="px-5 mx-3 bg-[#383FE1] py-2 rounded-full font-bold text-white">Save</button>
+            <button className="px-5 mx-3 border border-[#84878B] py-2 rounded-full font-bold text-[#84878B]">cancel</button>
+            <button className="px-5 mx-3 bg-[#383FE1] py-2 rounded-full font-bold text-white">Download Invoice</button>
+          </div>
+          <table className="w-2/5 text-end">
+            <tbody>
+              <tr>
+                <td className="font-bold">Subtotal:</td>
+                <td className="text-gray-400">16.550.000</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
