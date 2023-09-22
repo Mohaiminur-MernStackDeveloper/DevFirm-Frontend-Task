@@ -43,31 +43,56 @@ const AddInvoice = () => {
             </select>
           </div>
           <div className="w-full flex flex-col gap-2">
-            <label htmlFor="data" className="font-bold">Invoice Date</label>
+            <label htmlFor="data" className="font-bold">
+              Invoice Date
+            </label>
             <DatePicker
-            className="border px-5 py-2 text-sm rounded-full"
+              className="border px-5 py-2 text-sm rounded-full"
               selected={selectedDate}
               onChange={(date) => setSelectedDate(date)}
               dateFormat="dd/MM/yyyy"
               placeholderText="Select Date"
             />
           </div>
+          <div className="w-full flex flex-col gap-2">
+            <label className="font-bold" htmlFor="Client">
+              Trip
+            </label>
+            <select
+              className="w-full border rounded-full px-5 outline-none text-sm py-2"
+              name="Client"
+              id="client"
+            >
+              <option value="">12390</option>
+              <option value="">13224</option>
+              <option value="">24424</option>
+              <option value="">89467</option>
+              <option value="">29847</option>
+              <option value="">92847</option>
+              <option value="">98927</option>
+            </select>
+          </div>
         </div>
-        <div
-          className="w-fit border border-dashed border-blue-500 p-5 rounded-md"
-          {...getRootProps()}
-        >
-          <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Drop the files here ...</p>
-          ) : (
-            <div className="flex justify-center items-center text-blue-500 gap-3">
-              <BsDownload className="text-2xl" />
-              <p className="text-xs">
-                Upload <br /> plane image
+        <div className="space-y-3">
+          <label className="font-bold" htmlFor="">plane image</label>
+          <div
+            className="w-fit border border-dashed border-blue-500 p-5 rounded-md"
+            {...getRootProps()}
+          >
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p className="text-xs font-bold">
+                Drop the <br /> files here ...
               </p>
-            </div>
-          )}
+            ) : (
+              <div className="flex justify-center items-center text-blue-500 gap-3">
+                <BsDownload className="text-2xl" />
+                <p className="text-xs">
+                  Upload <br /> plane image
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
