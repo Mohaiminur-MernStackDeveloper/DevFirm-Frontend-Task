@@ -12,10 +12,86 @@ const AddInvoice = () => {
     // Do something with the files
     console.log(acceptedFiles);
   }, []);
+  const [productItems, setProductItem] = useState([]);
+
+  const deleteproductitem = ()=>{
+    productItems.slice(productItems.length-1, productItems.length);
+    setProductItem(productItems);
+  }
+
+  const NewProduct:any = (
+    <>
+      <tr>
+        <td>
+          <div className="w-full flex flex-col gap-2">
+            <select
+              className="w-full border rounded-md px-5 outline-none text-sm py-3"
+              name="Client"
+              id="client"
+            >
+              <option value="">Plan</option>
+              <option value="">Plan two</option>
+              <option value="">Plan three</option>
+              <option value="">Plan four</option>
+              <option value="">Plan five</option>
+              <option value="">Plan six</option>
+              <option value="">Plan Seven</option>
+            </select>
+          </div>
+        </td>
+        <td>
+          <div className="w-full flex flex-col gap-2">
+            <select
+              className="w-full border rounded-md px-5 outline-none text-sm py-3"
+              name="Client"
+              id="clients"
+            >
+              <option value="">Falcon8X TBA/LTI</option>
+              <option value="">Falcon8X TBA/LTI</option>
+              <option value="">Falcon8X TBA/LTI</option>
+              <option value="">Falcon8X TBA/LTI</option>
+              <option value="">Falcon8X TBA/LTI</option>
+              <option value="">Falcon8X TBA/LTI</option>
+              <option value="">Falcon8X TBA/LTI</option>
+            </select>
+          </div>
+        </td>
+        <td>
+          <input
+            className="w-full border rounded-md px-5 outline-none text-sm py-3"
+            type="text"
+            placeholder="Product for Trip t85256"
+          />
+        </td>
+        <td className="text-right flex justify-end items-center gap-2">
+          <input
+            className="w-3/5 border rounded-md px-5 outline-none text-sm py-3"
+            type="text"
+            placeholder="11.50.000"
+          />
+          <button onClick={deleteproductitem} className="bg-red-200 p-2 rounded-md">
+            <AiFillDelete className="text-2xl text-red-500" />
+          </button>
+        </td>
+      </tr>
+    </>
+  );
 
   const { getRootProps, getInputProps, isDragActive }: any = useDropzone({
     onDrop,
   });
+
+
+  // newproduct add function is here
+  const newproductadd = ()=>{
+    if(!productItems){
+      setProductItem([ NewProduct ]);
+    }else{
+      setProductItem([...productItems, NewProduct]);
+    }
+  };
+
+  
 
   return (
     <div>
@@ -169,9 +245,12 @@ const AddInvoice = () => {
                     </button>
                   </td>
                 </tr>
+                {
+                  productItems && productItems.map((item) => item)
+                }
               </tbody>
             </table>
-            <button className="mt-3 text-blue-500 font-bold">
+            <button onClick={newproductadd} className="mt-3 text-blue-500 font-bold">
               + Add Product
             </button>
           </div>
@@ -192,9 +271,15 @@ const AddInvoice = () => {
         </div>
         <div className="border-t mt-5 flex justify-between items-center py-5">
           <div>
-            <button className="px-5 mx-3 bg-[#383FE1] py-2 rounded-full font-bold text-white">Save</button>
-            <button className="px-5 mx-3 border border-[#84878B] py-2 rounded-full font-bold text-[#84878B]">cancel</button>
-            <button className="px-5 mx-3 bg-[#383FE1] py-2 rounded-full font-bold text-white">Download Invoice</button>
+            <button className="px-5 mx-3 bg-[#383FE1] py-2 rounded-full font-bold text-white">
+              Save
+            </button>
+            <button className="px-5 mx-3 border border-[#84878B] py-2 rounded-full font-bold text-[#84878B]">
+              cancel
+            </button>
+            <button className="px-5 mx-3 bg-[#383FE1] py-2 rounded-full font-bold text-white">
+              Download Invoice
+            </button>
           </div>
           <table className="w-2/5 text-end">
             <tbody>
